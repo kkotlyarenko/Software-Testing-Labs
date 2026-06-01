@@ -1,0 +1,64 @@
+flowchart LR
+
+    User(["Пользователь"])
+
+    subgraph Aviasales [" "]
+
+        UCInput["UC-Input:<br/>Ввод параметров поиска"]
+
+        UCResults["UC-Results:<br/>Просмотр результатов поиска"]
+
+        UC1["UC1:<br/>Покупка билета<br/>в одну сторону"]
+
+        UC2["UC2:<br/>Обмен направений"]
+
+        UC3["UC3:<br/>Билет туда-обратно"]
+
+        UC46["UC4-UC6:<br/>Фильтры авиабилетов"]
+
+        UC7["UC7:<br/>Маршрут из двух сегментов"]
+
+        UC8["UC8:<br/>Бронирование номера"]
+
+        UC911["UC9-UC11:<br/>Фильтры отелей"]
+
+        UC12["UC12:<br/>Карта низких цен"]
+
+        UC13["UC13:<br/>Поиск по журналу"]
+
+    end
+
+    User --> UC1
+    User --> UC7
+    User --> UC8
+    User --> UC12
+    User --> UC13
+
+    %% include
+
+    UC1  -. include .-> UCInput
+    UC1  -. include .-> UCResults
+
+    UC3  -. include .-> UCInput
+    UC3  -. include .-> UCResults
+
+    UC7  -. include .-> UCInput
+    UC7  -. include .-> UCResults
+
+    UC8  -. include .-> UCInput
+    UC8  -. include .-> UCResults
+
+    UC12 -. include .-> UCInput
+    UC12 -. include .-> UCResults
+
+    %% extend
+
+    UC2  -. extend .-> UC1
+
+    UC3  -. extend .-> UC1
+
+    UC46 -. extend .-> UCResults
+
+    UC911 -. extend .-> UCResults
+
+    UC12 -. extend .-> UC1

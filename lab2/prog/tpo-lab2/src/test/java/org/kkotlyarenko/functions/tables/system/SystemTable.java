@@ -10,7 +10,6 @@ public class SystemTable {
             Map.entry(2.0, 28.77792),               // random point
             Map.entry(8.0, 10.9572),                // random point
             Map.entry(3000.0, 4.36107)              // random point
-
     );
 
     public static final Map<Double, Double> TRIG = Map.ofEntries(
